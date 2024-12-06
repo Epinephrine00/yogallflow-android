@@ -255,6 +255,10 @@ class FirstFragment : Fragment(), SerialListener{
             if (deviceAddressList.contains(result.device.address))
                 return
 
+
+//            val scanRecord = result.scanRecord
+//            val serviceUuids = scanRecord?.serviceUuids
+
             var devname_ = result.device.name?:"null"
             var devName = devname_.trim()
 //            createDeviceButton(result.device)
@@ -264,6 +268,11 @@ class FirstFragment : Fragment(), SerialListener{
 //            Log.d("LEScanResult", "isFilter3 : ${devName.equals(LEdeviceFilter3, true)}")
             if (devName.equals("mpy-uart", true) ||
                 devName.equals("yogallflow", true)) {
+//                if (serviceUuids != null) {
+//                    for (uuid in serviceUuids) {
+//                        Log.d("BLEDevice", "UUID: ${uuid.uuid}")
+//                    }
+//                }
                 createDeviceButton(result.device)
             }
         }
